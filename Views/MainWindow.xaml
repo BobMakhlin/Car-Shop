@@ -9,18 +9,33 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2.8*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox ItemsSource="{Binding Path=Cars}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Label Style="{StaticResource AppControl}" Content="{Binding Path=Model}"/>
-                        <Label Style="{StaticResource AppControl}" Content="{Binding Path=Price}" ContentStringFormat="{}{0:C}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <!--ListBox, "Add" and "Delete" buttons -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ListBox ItemsSource="{Binding Path=Cars}" SelectedItem="{Binding Path=CurrentCar, Mode=TwoWay}" Margin="5,5,5,0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label Style="{StaticResource AppControl}" Content="{Binding Path=Model}"/>
+                            <Label Style="{StaticResource AppControl}" Content="{Binding Path=Price}" ContentStringFormat="{}{0:C}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+            <UniformGrid Rows="1" Grid.Row="1" Margin="5">
+                <Button Style="{StaticResource AppControl}" Height="50" Width="Auto"
+                        Command="{Binding CommandAddCar}">Add</Button>
+                <Button Style="{StaticResource AppControl}" Height="50" Width="Auto" Margin="5,0,0,0"
+                        Command="{Binding CommandDeleteCurrentCar}">Delete</Button>
+            </UniformGrid>
+        </Grid>
     </Grid>
 </Window>

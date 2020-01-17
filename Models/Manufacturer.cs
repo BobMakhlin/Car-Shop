@@ -8,7 +8,7 @@ namespace CarsShop.Models
 {
     class Manufacturer
     {
-        public string Name { get; set; }
-        public string Country { get; set; }
+        public string Name { get; set; } = "Unknown";
+        public string Country { get; set; } = "Unknown";
     }
 }
