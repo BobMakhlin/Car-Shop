@@ -1,4 +1,5 @@
-﻿using CarsShop.ViewModels;
+﻿using CarsShop.Services;
+using CarsShop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace CarsShop
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
+            DataContext = new MainWindowViewModel(new DialogService());
         }
     }
 }
