@@ -1,4 +1,5 @@
 ﻿using CarsShop.Models;
+using CarsShop.Services;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,15 @@ namespace CarsShop.ViewModels
     {
         #region Private Definitions
         private Car currentCar;
+        IDialogService dialogService;
         #endregion
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(IDialogService dialogService)
         {
             InitCommands();
+
+            // Init services.
+            this.dialogService = dialogService;
 
             Cars = new CarsStorage();
             CurrentCar = Cars.FirstOrDefault();
@@ -42,12 +47,22 @@ namespace CarsShop.ViewModels
         void InitCommands()
         {
             CommandAddCar = new RelayCommand(AddCar);
+            CommandDeleteCurrentCar = new RelayCommand(DeleteCurrentCar);
         }
 
         private void AddCar()
         {
             Cars.Add(new Car());
             CurrentCar = Cars.LastOrDefault();
+        }
+
+        private void DeleteCurrentCar()
+        {
+            if (dialogService.MessageBoxYesNo("Are you sure you want to delete the selected car?") == DialogResult.Yes)
+            {
+                Cars.Remove(CurrentCar);
+                CurrentCar = Cars.LastOrDefault();
+            }
         }
 
         #region INotifyPropertyChanged
