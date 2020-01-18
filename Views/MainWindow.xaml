@@ -44,63 +44,98 @@
             </UniformGrid>
         </Grid>
 
-        <!--Car data-->
+        <!--Car info-->
         <Grid Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.25*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1.24*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label>Model:</Label>
-            <Label Grid.Row="1" >Price:</Label>
-            <Label Grid.Row="2">Class:</Label>
-            <Label Grid.Row="3" VerticalAlignment="Center">Color:</Label>
-            <Label Grid.Row="4" VerticalAlignment="Center">Manufacturer:</Label>
-
-            <TextBox Grid.Column="1" Margin="2,2,5,2" Text="{Binding Path=CurrentCar.Model, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="2,2,5,2" Text="{Binding Path=CurrentCar.Price, StringFormat={}{0:C}, UpdateSourceTrigger=PropertyChanged}"/>
-            <ComboBox Grid.Row="2" Grid.Column="1" Margin="2,2,5,2" ItemsSource="{Binding Path=CarClasses}" SelectedItem="{Binding Path=CurrentCar.Class}"/>
-            <ComboBox Grid.Row="3" Grid.Column="1" Margin="2,2,5,2" ItemsSource="{Binding Path=CarColors}" SelectedItem="{Binding Path=CurrentCar.Color}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Border Width="20" Height="20" BorderBrush="Gray" BorderThickness="1" Background="{Binding Path=Color, Converter={StaticResource ColorToBrush}}"/>
-                            <Label Content="{Binding Path=Name}" Margin="0,0,0,2.6"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-
-            <Grid Grid.Row="4" Grid.Column="1">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Row="2" Grid.Column="2" Source="/img.jpg"/>
+
+                <!--Vertical GridSplitters-->
+                <GridSplitter Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Stretch" Width="1" Background="Gray" ResizeBehavior="PreviousAndNext"/>
+                <GridSplitter Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Stretch" Width="1" Background="Gray" ResizeBehavior="PreviousAndNext"/>
+
+                <!--Horizontal GridSplitters-->
+                <GridSplitter Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Height="1" Background="Gray" ResizeBehavior="PreviousAndNext"/>
+                <GridSplitter Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Height="1" Background="Gray" ResizeBehavior="PreviousAndNext"/>
+            </Grid>
+
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <ComboBox Margin="2" ItemsSource="{Binding Path=CarManufacturers}" SelectedItem="{Binding Path=CurrentCar.Manufacturer, Mode=TwoWay}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label>Model:</Label>
+                <Label Grid.Row="1" >Price:</Label>
+                <Label Grid.Row="2">Class:</Label>
+                <Label Grid.Row="3" VerticalAlignment="Center">Color:</Label>
+                <Label Grid.Row="4" VerticalAlignment="Center">Manufacturer:</Label>
+
+                <TextBox Grid.Column="1" Margin="2,2,5,2" Text="{Binding Path=CurrentCar.Model, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="2,2,5,2" Text="{Binding Path=CurrentCar.Price, StringFormat={}{0:C}, UpdateSourceTrigger=PropertyChanged}"/>
+                <ComboBox Grid.Row="2" Grid.Column="1" Margin="2,2,5,2" ItemsSource="{Binding Path=CarClasses}" SelectedItem="{Binding Path=CurrentCar.Class}"/>
+                <ComboBox Grid.Row="3" Grid.Column="1" Margin="2,2,5,2" ItemsSource="{Binding Path=CarColors}" SelectedItem="{Binding Path=CurrentCar.Color}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="{Binding Path=Name}"/>
-                                <Label Content="{Binding Path=Country}" ContentStringFormat="({0})" Margin="-5,0,0,0"/>
+                                <Border Width="20" Height="20" BorderBrush="Gray" BorderThickness="1" Background="{Binding Path=Color, Converter={StaticResource ColorToBrush}}"/>
+                                <Label Content="{Binding Path=Name}" Margin="0,0,0,2.6"/>
                             </StackPanel>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <Button Grid.Column="1" Margin="2,2,5,2" Width="Auto" Command="{Binding CommandEditManufacturers}" Content="...">
-                    <Button.ToolTip>
-                        <ToolTip>
-                            <TextBlock FontSize="15.5">Edit manufacturers</TextBlock>
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
+
+                <Grid Grid.Row="4" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Margin="2" ItemsSource="{Binding Path=CarManufacturers}" SelectedItem="{Binding Path=CurrentCar.Manufacturer, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding Path=Name}"/>
+                                    <Label Content="{Binding Path=Country}" ContentStringFormat="({0})" Margin="-5,0,0,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button Grid.Column="1" Margin="2,2,5,2" Width="Auto" Command="{Binding CommandEditManufacturers}" Content="...">
+                        <Button.ToolTip>
+                            <ToolTip>
+                                <TextBlock FontSize="15.5">Edit manufacturers</TextBlock>
+                            </ToolTip>
+                        </Button.ToolTip>
+                    </Button>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
