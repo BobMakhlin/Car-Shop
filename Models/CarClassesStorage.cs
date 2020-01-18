@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarsShop.Models
 {
-    class CarClassesStorage : ObservableCollection<string>
+    class CarClassesStorage : List<string>
     {
         public CarClassesStorage()
         {

@@ -16,31 +16,28 @@ namespace CarsShop.Models
             {
                 Model = "BMW i8",
                 Class = "S",
-                Color = Colors.Red,
-                Manufacturer = new Manufacturer { Country = "Germany", Name = "BMW" },
+                Color = new NamedColor { Color = Colors.Red, Name = "Red" },
                 Price = 50000
             });
             this.Add(new Car
             {
                 Model = "Audi R8",
                 Class = "S",
-                Color = Colors.White,
-                Manufacturer = new Manufacturer { Country = "Germany", Name = "Audi" },
+                Color = new NamedColor { Color = Colors.White, Name = "White" },
                 Price = 100000
             });
             this.Add(new Car
             {
                 Model = "Porsche Panamera",
                 Class = "S",
-                Color = Colors.Black,
-                Manufacturer = new Manufacturer { Country = "Germany", Name = "Porsche" },
+                Color = new NamedColor { Color = Colors.Black, Name = "Black" },
                 Price = 90000
             });
             this.Add(new Car
             {
                 Model = "Volkswagen Passat",
                 Class = "C",
-                Color = Colors.Black,
+                Color = new NamedColor { Color = Colors.Black, Name = "Black" },
                 Manufacturer = new Manufacturer { Country = "Germany", Name = "Volkswagen" },
                 Price = 10000
             });
@@ -48,80 +45,70 @@ namespace CarsShop.Models
             {
                 Model = "Chevrolet Volt",
                 Class = "C",
-                Color = Colors.White,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Chevrolet" },
+                Color = new NamedColor { Color = Colors.White, Name = "White" },
                 Price = 10000
             });
             this.Add(new Car
             {
                 Model = "Cadillac Escalade",
                 Class = "F",
-                Color = Colors.Black,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Cadillac" },
+                Color = new NamedColor { Color = Colors.Black, Name = "Black" },
                 Price = 45000
             });
             this.Add(new Car
             {
                 Model = "Buick Regal",
                 Class = "D",
-                Color = Colors.DarkGray,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Buick" },
+                Color = new NamedColor { Color = Colors.DarkGray, Name = "DarkGray" },
                 Price = 39500
             });
             this.Add(new Car
             {
                 Model = "Ford Focus",
                 Class = "C",
-                Color = Colors.DarkBlue,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Ford" },
+                Color = new NamedColor { Color = Colors.DarkBlue, Name = "DarkBlue" },
                 Price = 7000
             });
             this.Add(new Car
             {
                 Model = "Lincoln Navigator",
                 Class = "J",
-                Color = Colors.White,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Lincoln" },
+                Color = new NamedColor { Color = Colors.White, Name = "White" },
                 Price = 130000
             });
             this.Add(new Car
             {
                 Model = "Dodge Challenger",
                 Class = "D",
-                Color = Colors.Red,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Dodge" },
+                Color = new NamedColor { Color = Colors.Red, Name = "Red" },
                 Price = 25000
             });
             this.Add(new Car
             {
                 Model = "Jeep Compass",
                 Class = "J",
-                Color = Colors.Red,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Jeep" },
+                Color = new NamedColor { Color = Colors.Red, Name = "Red" },
                 Price = 10000
             });
             this.Add(new Car
             {
                 Model = "Tesla Model S",
                 Class = "S",
-                Color = Colors.Gray,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Tesla motors" },
+                Color = new NamedColor { Color = Colors.Gray, Name = "Gray" },
                 Price = 30000
             });
             this.Add(new Car
             {
                 Model = "Bentley Continental",
                 Class = "S",
-                Color = Colors.Black,
-                Manufacturer = new Manufacturer { Country = "UK", Name = "Bentley" },
+                Color = new NamedColor { Color = Colors.Black, Name = "Black" },
                 Price = 100000
             });
             this.Add(new Car
             {
                 Model = "Jaguar I-Pace",
                 Class = "S",
-                Color = Colors.Black,
-                Manufacturer = new Manufacturer { Country = "UK", Name = "Jaguar" },
+                Color = new NamedColor { Color = Colors.Black, Name = "Black" },
                 Price = 70000
             });
         }

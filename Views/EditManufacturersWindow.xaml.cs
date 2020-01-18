@@ -1,6 +1,4 @@
-﻿using CarsShop.Services;
-using CarsShop.Services.WindowServices.EditManufacturersService;
-using CarsShop.ViewModels;
+﻿using CarsShop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,20 +11,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CarsShop
+namespace CarsShop.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для EditManufacturersWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EditManufacturersWindow : Window
     {
-        public MainWindow()
+        public EditManufacturersWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel(new DialogService(), new EditManufacturersWndService());
         }
     }
 }
