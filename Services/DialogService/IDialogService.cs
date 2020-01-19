@@ -8,6 +8,8 @@ namespace CarsShop.Services
 {
     interface IDialogService
     {
+        string File { get; set; }
+        bool OpenFileDialog();
         DialogResult MessageBoxYesNo(string msg, string caption = "");
     }
 }

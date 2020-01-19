@@ -2,6 +2,7 @@
 using CarsShop.Services;
 using CarsShop.Services.WindowServices.EditManufacturersService;
 using GalaSoft.MvvmLight.Command;
+using PhotoAlbum.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -57,7 +58,7 @@ namespace CarsShop.ViewModels
                 CurrentCarChanged?.Invoke(this, EventArgs.Empty);
             }
         }
-        public Photo CurrentPhoto 
+        public Photo CurrentPhoto
         {
             get => currentPhoto;
             private set
@@ -76,6 +77,8 @@ namespace CarsShop.ViewModels
         public ICommand CommandEditManufacturers { get; private set; }
         public ICommand CommandSelectPrevPhoto { get; private set; }
         public ICommand CommandSelectNextPhoto { get; private set; }
+        public ICommand CommandDeleteCurrentPhoto { get; private set; }
+        public ICommand CommandOpenPhoto { get; private set; }
 
         void InitCommands()
         {
@@ -84,6 +87,8 @@ namespace CarsShop.ViewModels
             CommandEditManufacturers = new RelayCommand(EditManufacturers);
             CommandSelectPrevPhoto = new RelayCommand(SelectPrevPhoto);
             CommandSelectNextPhoto = new RelayCommand(SelectNextPhoto);
+            CommandDeleteCurrentPhoto = new RelayCommand(DeleteCurrentPhoto, DeleteCurrentPhotoCanExecute);
+            CommandOpenPhoto = new RelayCommand(OpenPhoto);
         }
 
         private void AddCar()
@@ -140,7 +145,31 @@ namespace CarsShop.ViewModels
                 }
             }
         }
-        
+        private void DeleteCurrentPhoto()
+        {
+            if (dialogService.MessageBoxYesNo("Are you sure you want to delete this photo?") == DialogResult.Yes)
+            {
+                CurrentCar.Photos.Remove(CurrentPhoto);
+                CurrentPhoto = CurrentCar.Photos.LastOrDefault();
+            }
+        }
+        private bool DeleteCurrentPhotoCanExecute()
+        {
+            return CurrentCar.Photos.Count > 0;
+        }
+        private void OpenPhoto()
+        {
+            if (dialogService.OpenFileDialog())
+            {
+                if (FileFormat.IsImage(dialogService.File))
+                {
+                    var filename = Helper.CopyToImageDir(dialogService.File);
+                    CurrentCar.Photos.Add(new Photo { Path = filename });
+                    CurrentPhoto = CurrentCar.Photos.LastOrDefault();
+                }
+            }
+        }
+
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
