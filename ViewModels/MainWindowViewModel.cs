@@ -1,7 +1,9 @@
-﻿using CarsShop.Models;
+﻿using CarsShop.DropHandlers;
+using CarsShop.Models;
 using CarsShop.Services;
 using CarsShop.Services.WindowServices.EditManufacturersService;
 using GalaSoft.MvvmLight.Command;
+using GongSolutions.Wpf.DragDrop;
 using PhotoAlbum.Helpers;
 using System;
 using System.Collections.Generic;
@@ -34,12 +36,15 @@ namespace CarsShop.ViewModels
             this.dialogService = dialogService;
             this.manufacturersWndService = manufacturersWndService;
 
+            // Init drop handlers.
+            ImageDropHandler = new ImageDropHandler(this);
+
             CurrentCarChanged += OnCurrentCarChanged;
 
+            // Init program data.
             Cars = new CarsStorage();
             CurrentCar = Cars.FirstOrDefault();
             CurrentPhoto = CurrentCar.Photos.FirstOrDefault();
-
             CarClasses = new CarClassesStorage();
             CarColors = new NamedColorsStorage();
             CarManufacturers = new ManufacturersStorage();
@@ -61,7 +66,7 @@ namespace CarsShop.ViewModels
         public Photo CurrentPhoto
         {
             get => currentPhoto;
-            private set
+            set
             {
                 currentPhoto = value;
                 INotifyPropertyChanged();
@@ -72,6 +77,7 @@ namespace CarsShop.ViewModels
         public List<NamedColor> CarColors { get; set; }
         public ObservableCollection<Manufacturer> CarManufacturers { get; set; }
 
+        public IDropTarget ImageDropHandler { get; private set; }
         public ICommand CommandAddCar { get; private set; }
         public ICommand CommandDeleteCurrentCar { get; private set; }
         public ICommand CommandEditManufacturers { get; private set; }
