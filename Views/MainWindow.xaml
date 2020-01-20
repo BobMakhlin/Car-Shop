@@ -10,6 +10,12 @@
         mc:Ignorable="d"
         Title="Car shop" Height="450" Width="800">
 
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Closing">
+            <b:InvokeCommandAction Command="{Binding CommandProgramClosing}"/>
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+
     <Window.Resources>
         <cs:ColorToBrushConverter x:Key="ColorToBrush"/>
 
@@ -47,7 +53,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <UniformGrid Rows="1" Grid.Row="1" Margin="5">
+            <UniformGrid Rows="1" Grid.Row="1" Margin="5,0,5,0">
                 <Button Height="50" Width="Auto"
                         Command="{Binding CommandAddCar}">Add</Button>
                 <Button Height="50" Width="Auto" Margin="5,0,0,0"
@@ -79,7 +85,11 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Row="2" Grid.Column="2" Background="White" dd:DragDrop.IsDropTarget="True" dd:DragDrop.DropHandler="{Binding ImageDropHandler}">
-                    <Image Source="{Binding CurrentPhoto.Path}"/>
+                    <Image Source="{Binding CurrentPhoto.Path}">
+                        <Image.InputBindings>
+                            <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding CommandOpenPhoto}"/>
+                        </Image.InputBindings>
+                    </Image>
 
                     <Image Style="{StaticResource VisibleControl}" Height="65" Width="40" HorizontalAlignment="Left" Source="/Resources/png/prev.png">
                         <b:Interaction.Triggers>
@@ -150,7 +160,7 @@
                         <ColumnDefinition Width="8*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox Margin="2" ItemsSource="{Binding Path=CarManufacturers}" SelectedItem="{Binding Path=CurrentCar.Manufacturer, Mode=TwoWay}">
+                    <ComboBox Margin="2" ItemsSource="{Binding Path=CarManufacturers}" SelectedValue="{Binding Path=CurrentCar.ManufacturerId}" SelectedValuePath="Id">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

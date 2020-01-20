@@ -9,6 +9,7 @@ using System.Windows.Media;
 
 namespace CarsShop.Models
 {
+    [Serializable]
     class NamedColorsStorage : List<NamedColor>
     {
         public NamedColorsStorage()

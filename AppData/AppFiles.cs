@@ -8,7 +8,9 @@ namespace CarsShop.AppData
 {
     static class AppFiles
     {
-        public static string StandartImagesPath => @"Images\Standart";
-        public static string CustomImagesPath => @"Images\Custom";
+        public static string StandartImagesPath => @"AppData\Images\Standart";
+        public static string CustomImagesPath => @"AppData\Images\Custom";
+        public static string CarsPath => @"AppData\cars.bin";
+        public static string ManufacturersPath => @"AppData\manufacturers.bin";
     }
 }

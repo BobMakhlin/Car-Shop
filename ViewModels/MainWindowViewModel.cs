@@ -1,4 +1,5 @@
-﻿using CarsShop.DropHandlers;
+﻿using CarsShop.AppData;
+using CarsShop.DropHandlers;
 using CarsShop.Models;
 using CarsShop.Services;
 using CarsShop.Services.WindowServices.EditManufacturersService;
@@ -41,13 +42,7 @@ namespace CarsShop.ViewModels
 
             CurrentCarChanged += OnCurrentCarChanged;
 
-            // Init program data.
-            Cars = new CarsStorage();
-            CurrentCar = Cars.FirstOrDefault();
-            CurrentPhoto = CurrentCar.Photos.FirstOrDefault();
-            CarClasses = new CarClassesStorage();
-            CarColors = new NamedColorsStorage();
-            CarManufacturers = new ManufacturersStorage();
+            LoadProgramData();
         }
 
         public event EventHandler CurrentCarChanged;
@@ -85,6 +80,7 @@ namespace CarsShop.ViewModels
         public ICommand CommandSelectNextPhoto { get; private set; }
         public ICommand CommandDeleteCurrentPhoto { get; private set; }
         public ICommand CommandOpenPhoto { get; private set; }
+        public ICommand CommandProgramClosing { get; private set; }
 
         void InitCommands()
         {
@@ -95,8 +91,34 @@ namespace CarsShop.ViewModels
             CommandSelectNextPhoto = new RelayCommand(SelectNextPhoto);
             CommandDeleteCurrentPhoto = new RelayCommand(DeleteCurrentPhoto, DeleteCurrentPhotoCanExecute);
             CommandOpenPhoto = new RelayCommand(OpenPhoto);
+            CommandProgramClosing = new RelayCommand(OnProgramClosing);
         }
 
+        void LoadProgramData()
+        {
+            try
+            {
+                Cars = AppDataManager.LoadCars(AppFiles.CarsPath);
+            }
+            catch (Exception)
+            {
+                Cars = new CarsStorage();
+            }
+
+            try
+            {
+                CarManufacturers = AppDataManager.LoadManufacturers(AppFiles.ManufacturersPath);
+            }
+            catch (Exception)
+            {
+                CarManufacturers = new ManufacturersStorage();
+            }
+
+            CurrentCar = Cars.FirstOrDefault();
+            CurrentPhoto = CurrentCar.Photos.FirstOrDefault();
+            CarClasses = new CarClassesStorage();
+            CarColors = new NamedColorsStorage();
+        }
         private void AddCar()
         {
             Cars.Add(new Car());
@@ -174,6 +196,11 @@ namespace CarsShop.ViewModels
                     CurrentPhoto = CurrentCar.Photos.LastOrDefault();
                 }
             }
+        }
+        private void OnProgramClosing()
+        {
+            AppDataManager.SaveCars(AppFiles.CarsPath, Cars);
+            AppDataManager.SaveManufacturers(AppFiles.ManufacturersPath, CarManufacturers);
         }
 
         #region INotifyPropertyChanged

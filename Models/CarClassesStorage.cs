@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarsShop.Models
 {
+    [Serializable]
     class CarClassesStorage : List<string>
     {
         public CarClassesStorage()

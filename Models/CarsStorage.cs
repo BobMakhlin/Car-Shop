@@ -9,6 +9,7 @@ using System.Windows.Media;
 
 namespace CarsShop.Models
 {
+    [Serializable]
     class CarsStorage : ObservableCollection<Car>
     {
         public CarsStorage()
@@ -19,6 +20,7 @@ namespace CarsShop.Models
                 Class = "S",
                 Color = new NamedColor { Color = Colors.White, Name = "White" },
                 Price = 85000,
+                ManufacturerId = 1,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\bmw i8-1.png" },
@@ -32,6 +34,7 @@ namespace CarsShop.Models
                 Class = "S",
                 Color = new NamedColor { Color = Colors.Black, Name = "Black" },
                 Price = 100000,
+                ManufacturerId = 2,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\audi r8-1.png" },
@@ -45,6 +48,7 @@ namespace CarsShop.Models
                 Class = "S",
                 Color = new NamedColor { Color = Colors.Black, Name = "Black" },
                 Price = 90000,
+                ManufacturerId = 3,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\porsche panamera-1.png" },
@@ -57,6 +61,7 @@ namespace CarsShop.Models
                 Class = "C",
                 Color = new NamedColor { Color = Colors.Red, Name = "Red" },
                 Price = 10000,
+                ManufacturerId = 4,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\volkswagen passat-1.png" },
@@ -70,6 +75,7 @@ namespace CarsShop.Models
                 Class = "C",
                 Color = new NamedColor { Color = Colors.White, Name = "White" },
                 Price = 10000,
+                ManufacturerId = 5,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\chevrolet volt-1.png" },
@@ -83,6 +89,7 @@ namespace CarsShop.Models
                 Class = "F",
                 Color = new NamedColor { Color = Colors.Black, Name = "Black" },
                 Price = 45000,
+                ManufacturerId = 6,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\cadillac escalade-1.png" },
@@ -95,6 +102,7 @@ namespace CarsShop.Models
                 Class = "D",
                 Color = new NamedColor { Color = Colors.DarkGray, Name = "DarkGray" },
                 Price = 39500,
+                ManufacturerId = 7,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\buick regal-1.png" },
@@ -107,6 +115,7 @@ namespace CarsShop.Models
                 Class = "C",
                 Color = new NamedColor { Color = Colors.DarkBlue, Name = "DarkBlue" },
                 Price = 7000,
+                ManufacturerId = 8,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\ford focus-1.png" },
@@ -120,6 +129,7 @@ namespace CarsShop.Models
                 Class = "J",
                 Color = new NamedColor { Color = Colors.White, Name = "White" },
                 Price = 130000,
+                ManufacturerId = 9,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\lincoln navigator-1.png" },
@@ -132,6 +142,7 @@ namespace CarsShop.Models
                 Class = "D",
                 Color = new NamedColor { Color = Colors.Red, Name = "Red" },
                 Price = 25000,
+                ManufacturerId = 10,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\dodge challenger-1.png" },
@@ -144,6 +155,7 @@ namespace CarsShop.Models
                 Class = "J",
                 Color = new NamedColor { Color = Colors.Gray, Name = "Gray" },
                 Price = 10000,
+                ManufacturerId = 11,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\jeep compass-1.png" },
@@ -156,6 +168,7 @@ namespace CarsShop.Models
                 Class = "S",
                 Color = new NamedColor { Color = Colors.Gray, Name = "Gray" },
                 Price = 30000,
+                ManufacturerId = 12,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\tesla model s-1.png" },
@@ -168,6 +181,7 @@ namespace CarsShop.Models
                 Class = "S",
                 Color = new NamedColor { Color = Colors.Black, Name = "Black" },
                 Price = 100000,
+                ManufacturerId = 13,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\bentley continental-1.png" },
@@ -180,6 +194,7 @@ namespace CarsShop.Models
                 Class = "S",
                 Color = new NamedColor { Color = Colors.Black, Name = "DarkGray" },
                 Price = 70000,
+                ManufacturerId = 14,
                 Photos = new ObservableCollection<Photo>
                 {
                     new Photo { Path=$"{AppFiles.StandartImagesPath}\\jaguar i-pace-1.png" },

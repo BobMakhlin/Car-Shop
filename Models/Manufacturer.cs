@@ -9,6 +9,7 @@ using System.Windows;
 
 namespace CarsShop.Models
 {
+    [Serializable]
     class Manufacturer : IEquatable<Manufacturer>, INotifyPropertyChanged
     {
         #region Private Definitions
@@ -16,6 +17,7 @@ namespace CarsShop.Models
         private string country = "Unknown";
         #endregion
 
+        public int Id { get; set; }
         public string Name 
         { 
             get => name; 
@@ -43,6 +45,7 @@ namespace CarsShop.Models
         #endregion
 
         #region INotifyPropertyChanged
+        [field:NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
 
         void INotifyPropertyChanged([CallerMemberName] string prop = "")

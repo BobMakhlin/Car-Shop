@@ -27,7 +27,7 @@ namespace CarsShop.Models
         }
 
         #region INotifyPropertyChanged
-        [field: NonSerialized]
+        [field:NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
 
         void INotifyPropertyChanged([CallerMemberName] string prop = "")

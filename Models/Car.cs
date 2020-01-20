@@ -6,10 +6,12 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace CarsShop.Models
 {
+    [Serializable]
     class Car : INotifyPropertyChanged
     {
         #region Private Definitions
@@ -17,7 +19,7 @@ namespace CarsShop.Models
         private decimal price;
         private string @class;
         private NamedColor color;
-        private Manufacturer manufacturer = new Manufacturer();
+        private int manufacturerId = -1;
         #endregion
 
         public string Model
@@ -56,12 +58,12 @@ namespace CarsShop.Models
                 INotifyPropertyChanged();
             }
         }
-        public Manufacturer Manufacturer 
+        public int ManufacturerId 
         { 
-            get => manufacturer; 
+            get => manufacturerId; 
             set
             {
-                manufacturer = value;
+                manufacturerId = value;
                 INotifyPropertyChanged();
             }
         }
@@ -69,6 +71,7 @@ namespace CarsShop.Models
         public ObservableCollection<Photo> Photos { get; set; } = new ObservableCollection<Photo>();
 
         #region INotifyPropertyChanged
+        [field:NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
 
         void INotifyPropertyChanged([CallerMemberName] string prop = "")
