@@ -12,10 +12,10 @@ namespace CarsShop.Models
     {
         public ManufacturersStorage()
         {
-            this.Add(new Manufacturer { Name = "BMW", Country = "German" });
-            this.Add(new Manufacturer { Name = "Audi", Country = "German" });
-            this.Add(new Manufacturer { Name = "Porsche", Country = "German" });
-            this.Add(new Manufacturer { Name = "Volkswagen", Country = "German" });
+            this.Add(new Manufacturer { Name = "BMW", Country = "Germany" });
+            this.Add(new Manufacturer { Name = "Audi", Country = "Germany" });
+            this.Add(new Manufacturer { Name = "Porsche", Country = "Germany" });
+            this.Add(new Manufacturer { Name = "Volkswagen", Country = "Germany" });
             this.Add(new Manufacturer { Name = "Chevrolet", Country = "USA" });
             this.Add(new Manufacturer { Name = "Cadillac", Country = "USA" });
             this.Add(new Manufacturer { Name = "Buick", Country = "USA" });

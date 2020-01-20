@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarsShop.AppData;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,113 +17,174 @@ namespace CarsShop.Models
             {
                 Model = "BMW i8",
                 Class = "S",
-                Color = Colors.Red,
-                Manufacturer = new Manufacturer { Country = "Germany", Name = "BMW" },
-                Price = 50000
+                Color = new NamedColor { Color = Colors.White, Name = "White" },
+                Price = 85000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\bmw i8-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\bmw i8-2.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\bmw i8-3.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Audi R8",
                 Class = "S",
-                Color = Colors.White,
-                Manufacturer = new Manufacturer { Country = "Germany", Name = "Audi" },
-                Price = 100000
+                Color = new NamedColor { Color = Colors.Black, Name = "Black" },
+                Price = 100000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\audi r8-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\audi r8-2.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\audi r8-3.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Porsche Panamera",
                 Class = "S",
-                Color = Colors.Black,
-                Manufacturer = new Manufacturer { Country = "Germany", Name = "Porsche" },
-                Price = 90000
+                Color = new NamedColor { Color = Colors.Black, Name = "Black" },
+                Price = 90000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\porsche panamera-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\porsche panamera-2.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Volkswagen Passat",
                 Class = "C",
-                Color = Colors.Black,
-                Manufacturer = new Manufacturer { Country = "Germany", Name = "Volkswagen" },
-                Price = 10000
+                Color = new NamedColor { Color = Colors.Red, Name = "Red" },
+                Price = 10000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\volkswagen passat-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\volkswagen passat-2.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\volkswagen passat-3.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Chevrolet Volt",
                 Class = "C",
-                Color = Colors.White,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Chevrolet" },
-                Price = 10000
+                Color = new NamedColor { Color = Colors.White, Name = "White" },
+                Price = 10000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\chevrolet volt-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\chevrolet volt-2.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\chevrolet volt-3.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Cadillac Escalade",
                 Class = "F",
-                Color = Colors.Black,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Cadillac" },
-                Price = 45000
+                Color = new NamedColor { Color = Colors.Black, Name = "Black" },
+                Price = 45000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\cadillac escalade-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\cadillac escalade-2.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Buick Regal",
                 Class = "D",
-                Color = Colors.DarkGray,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Buick" },
-                Price = 39500
+                Color = new NamedColor { Color = Colors.DarkGray, Name = "DarkGray" },
+                Price = 39500,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\buick regal-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\buick regal-2.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Ford Focus",
                 Class = "C",
-                Color = Colors.DarkBlue,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Ford" },
-                Price = 7000
+                Color = new NamedColor { Color = Colors.DarkBlue, Name = "DarkBlue" },
+                Price = 7000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\ford focus-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\ford focus-2.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\ford focus-3.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Lincoln Navigator",
                 Class = "J",
-                Color = Colors.White,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Lincoln" },
-                Price = 130000
+                Color = new NamedColor { Color = Colors.White, Name = "White" },
+                Price = 130000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\lincoln navigator-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\lincoln navigator-2.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Dodge Challenger",
                 Class = "D",
-                Color = Colors.Red,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Dodge" },
-                Price = 25000
+                Color = new NamedColor { Color = Colors.Red, Name = "Red" },
+                Price = 25000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\dodge challenger-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\dodge challenger-2.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Jeep Compass",
                 Class = "J",
-                Color = Colors.Red,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Jeep" },
-                Price = 10000
+                Color = new NamedColor { Color = Colors.Gray, Name = "Gray" },
+                Price = 10000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\jeep compass-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\jeep compass-2.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Tesla Model S",
                 Class = "S",
-                Color = Colors.Gray,
-                Manufacturer = new Manufacturer { Country = "USA", Name = "Tesla motors" },
-                Price = 30000
+                Color = new NamedColor { Color = Colors.Gray, Name = "Gray" },
+                Price = 30000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\tesla model s-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\tesla model s-2.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Bentley Continental",
                 Class = "S",
-                Color = Colors.Black,
-                Manufacturer = new Manufacturer { Country = "UK", Name = "Bentley" },
-                Price = 100000
+                Color = new NamedColor { Color = Colors.Black, Name = "Black" },
+                Price = 100000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\bentley continental-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\bentley continental-2.png" }
+                }
             });
             this.Add(new Car
             {
                 Model = "Jaguar I-Pace",
                 Class = "S",
-                Color = Colors.Black,
-                Manufacturer = new Manufacturer { Country = "UK", Name = "Jaguar" },
-                Price = 70000
+                Color = new NamedColor { Color = Colors.Black, Name = "DarkGray" },
+                Price = 70000,
+                Photos = new ObservableCollection<Photo>
+                {
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\jaguar i-pace-1.png" },
+                    new Photo { Path=$"{AppFiles.StandartImagesPath}\\jaguar i-pace-2.png" }
+                }
             });
         }
     }
