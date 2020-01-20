@@ -27,6 +27,7 @@ namespace CarsShop.ViewModels
         IDialogService dialogService;
         IEditManufacturersWndService manufacturersWndService;
         private Photo currentPhoto;
+        private ObservableCollection<Car> cars;
         #endregion
 
         public MainWindowViewModel(IDialogService dialogService, IEditManufacturersWndService manufacturersWndService)
@@ -47,7 +48,15 @@ namespace CarsShop.ViewModels
 
         public event EventHandler CurrentCarChanged;
 
-        public ObservableCollection<Car> Cars { get; private set; }
+        public ObservableCollection<Car> Cars
+        {
+            get => cars;
+            private set
+            {
+                cars = value;
+                INotifyPropertyChanged();
+            }
+        }
         public Car CurrentCar
         {
             get => currentCar;
@@ -81,6 +90,10 @@ namespace CarsShop.ViewModels
         public ICommand CommandDeleteCurrentPhoto { get; private set; }
         public ICommand CommandOpenPhoto { get; private set; }
         public ICommand CommandProgramClosing { get; private set; }
+        public ICommand CommandAzSort { get; private set; }
+        public ICommand CommandZaSort { get; private set; }
+        public ICommand CommandFromCheapToExpensiveSort { get; private set; }
+        public ICommand CommandFromExpensiveToCheapSort { get; private set; }
 
         void InitCommands()
         {
@@ -92,6 +105,10 @@ namespace CarsShop.ViewModels
             CommandDeleteCurrentPhoto = new RelayCommand(DeleteCurrentPhoto, DeleteCurrentPhotoCanExecute);
             CommandOpenPhoto = new RelayCommand(OpenPhoto);
             CommandProgramClosing = new RelayCommand(OnProgramClosing);
+            CommandAzSort = new RelayCommand(AzSortCars);
+            CommandZaSort = new RelayCommand(ZaSortCars);
+            CommandFromCheapToExpensiveSort = new RelayCommand(SortFromCheapToExpensive);
+            CommandFromExpensiveToCheapSort = new RelayCommand(SortCommandFromExpensiveToCheap);
         }
 
         void LoadProgramData()
@@ -201,6 +218,26 @@ namespace CarsShop.ViewModels
         {
             AppDataManager.SaveCars(AppFiles.CarsPath, Cars);
             AppDataManager.SaveManufacturers(AppFiles.ManufacturersPath, CarManufacturers);
+        }
+        private void AzSortCars()
+        {
+            Cars = new ObservableCollection<Car>(Cars.OrderBy(x => x.Model));
+            CurrentCar = Cars.FirstOrDefault();
+        }
+        private void ZaSortCars()
+        {
+            Cars = new ObservableCollection<Car>(Cars.OrderByDescending(x => x.Model));
+            CurrentCar = Cars.FirstOrDefault();
+        }
+        private void SortFromCheapToExpensive()
+        {
+            Cars = new ObservableCollection<Car>(Cars.OrderBy(x => x.Price));
+            CurrentCar = Cars.FirstOrDefault();
+        }
+        private void SortCommandFromExpensiveToCheap()
+        {
+            Cars = new ObservableCollection<Car>(Cars.OrderByDescending(x => x.Price));
+            CurrentCar = Cars.FirstOrDefault();
         }
 
         #region INotifyPropertyChanged
