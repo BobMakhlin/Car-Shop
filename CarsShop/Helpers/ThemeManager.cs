@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +26,24 @@ namespace CarsShop.Helpers
                 "DarkBlue",
                 "DarkOrange"
             };
+        }
+
+
+        public static void SaveThemeName(string path, string themeName)
+        {
+            using (var fs = File.Create(path))
+            {
+                var bf = new BinaryFormatter();
+                bf.Serialize(fs, themeName);
+            }
+        }
+        public static string LoadThemeName(string path)
+        {
+            using (var fs = File.OpenRead(path))
+            {
+                var bf = new BinaryFormatter();
+                return (string)bf.Deserialize(fs);
+            }
         }
     }
 }

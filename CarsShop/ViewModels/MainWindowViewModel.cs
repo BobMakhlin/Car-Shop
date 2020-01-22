@@ -37,7 +37,15 @@ namespace CarsShop.ViewModels
         {
             InitCommands();
 
-            ThemeManager.SetAppTheme(ThemeManager.GetThemesNames()[0]);
+            // Set app theme.
+            try
+            {
+                ThemeManager.SetAppTheme(ThemeManager.LoadThemeName(AppFiles.ThemeNamePath));
+            }
+            catch (Exception)
+            {
+                ThemeManager.SetAppTheme(ThemeManager.GetThemesNames()[0]);
+            }
 
             // Init services.
             this.dialogService = dialogService;

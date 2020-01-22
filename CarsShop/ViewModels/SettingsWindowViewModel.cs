@@ -1,4 +1,5 @@
-﻿using CarsShop.Helpers;
+﻿using CarsShop.AppData;
+using CarsShop.Helpers;
 using CarsShop.Infrastructure;
 using GalaSoft.MvvmLight.Command;
 using PhotoAlbum.Helpers;
@@ -18,22 +19,36 @@ namespace CarsShop.ViewModels
             InitCommands();
 
             ThemesNames = ThemeManager.GetThemesNames();
-            SelectedTheme = ThemesNames.FirstOrDefault();
+
+            try
+            {
+                SelectedTheme = ThemeManager.LoadThemeName(AppFiles.ThemeNamePath);
+            }
+            catch (Exception)
+            {
+                SelectedTheme = ThemesNames.FirstOrDefault();
+            }
         }
 
         public List<string> ThemesNames { get; set; }
         public string SelectedTheme { get; set; }
         public ICommand CommandSetTheme { get; private set; }
+        public ICommand CommandWindowClosing { get; private set; }
 
         void InitCommands()
         {
             CommandSetTheme = new RelayCommand<IClosable>(SetTheme);
+            CommandWindowClosing = new RelayCommand(OnWindowClosing);
         }
 
         private void SetTheme(IClosable window)
         {
             ThemeManager.SetAppTheme(SelectedTheme);
             window.Close();
+        }
+        private void OnWindowClosing()
+        {
+            ThemeManager.SaveThemeName(AppFiles.ThemeNamePath, SelectedTheme);
         }
     }
 }
