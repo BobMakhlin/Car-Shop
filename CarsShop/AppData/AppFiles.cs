@@ -13,6 +13,5 @@ namespace CarsShop.AppData
         public static string CarsPath => @"AppData\cars.bin";
         public static string ManufacturersPath => @"AppData\manufacturers.bin";
         public static string ThemesPath => "Resources/Themes";
-        public static string ThemeNamePath => @"AppData\currentTheme.bin";
     }
 }

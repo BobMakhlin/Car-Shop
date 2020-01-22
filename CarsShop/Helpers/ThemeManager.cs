@@ -27,23 +27,5 @@ namespace CarsShop.Helpers
                 "DarkOrange"
             };
         }
-
-
-        public static void SaveThemeName(string path, string themeName)
-        {
-            using (var fs = File.Create(path))
-            {
-                var bf = new BinaryFormatter();
-                bf.Serialize(fs, themeName);
-            }
-        }
-        public static string LoadThemeName(string path)
-        {
-            using (var fs = File.OpenRead(path))
-            {
-                var bf = new BinaryFormatter();
-                return (string)bf.Deserialize(fs);
-            }
-        }
     }
 }

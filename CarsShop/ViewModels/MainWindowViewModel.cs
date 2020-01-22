@@ -2,11 +2,13 @@
 using CarsShop.DropHandlers;
 using CarsShop.Helpers;
 using CarsShop.Models;
+using CarsShop.Properties;
 using CarsShop.Services;
 using CarsShop.Services.WindowServices;
 using CarsShop.Services.WindowServices.EditManufacturersService;
 using GalaSoft.MvvmLight.Command;
 using GongSolutions.Wpf.DragDrop;
+using LocalizatorHelper;
 using PhotoAlbum.Helpers;
 using System;
 using System.Collections.Generic;
@@ -36,16 +38,6 @@ namespace CarsShop.ViewModels
         public MainWindowViewModel(IDialogService dialogService, IEditManufacturersWndService manufacturersWndService, IWindowService settingsService)
         {
             InitCommands();
-
-            // Set app theme.
-            try
-            {
-                ThemeManager.SetAppTheme(ThemeManager.LoadThemeName(AppFiles.ThemeNamePath));
-            }
-            catch (Exception)
-            {
-                ThemeManager.SetAppTheme(ThemeManager.GetThemesNames()[0]);
-            }
 
             // Init services.
             this.dialogService = dialogService;
@@ -126,7 +118,7 @@ namespace CarsShop.ViewModels
             CommandFromExpensiveToCheapSort = new RelayCommand(SortCommandFromExpensiveToCheap);
             CommandShowSettings = new RelayCommand(ShowSettings);
         }
-        
+
         void LoadProgramData()
         {
             try
@@ -151,6 +143,26 @@ namespace CarsShop.ViewModels
             CurrentPhoto = CurrentCar.Photos.FirstOrDefault();
             CarClasses = new CarClassesStorage();
             CarColors = new NamedColorsStorage();
+
+            // Set app theme.
+            var theme = Settings.Default.Theme;
+
+            if (theme != null)
+            {
+                ThemeManager.SetAppTheme(theme);
+            }
+            else
+            {
+                ThemeManager.SetAppTheme(ThemeManager.GetThemesNames()[0]);
+            }
+
+            // Set language.
+            var lang = Settings.Default.Language;
+
+            if (lang != null)
+            {
+                ResourceManagerService.ChangeLocale(lang);
+            }
         }
         private void AddCar()
         {
@@ -234,6 +246,7 @@ namespace CarsShop.ViewModels
         {
             AppDataManager.SaveCars(AppFiles.CarsPath, Cars);
             AppDataManager.SaveManufacturers(AppFiles.ManufacturersPath, CarManufacturers);
+            Settings.Default.Save();
         }
         private void AzSortCars()
         {

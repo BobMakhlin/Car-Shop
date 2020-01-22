@@ -6,7 +6,13 @@
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:CarsShop.Views"
         mc:Ignorable="d"
+        xmlns:loc="clr-namespace:LocalizatorHelper;assembly=LocalizationHelper"
         Title="Edit manufacturers" Height="450" Width="800">
+
+    <Window.Resources>
+        <loc:LocalizationHelper x:Key="LocHelper"/>
+    </Window.Resources>
+
     <Grid>
         <DataGrid ItemsSource="{Binding Path=Manufacturers}" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False">
             <b:Interaction.Triggers>
@@ -16,8 +22,8 @@
             </b:Interaction.Triggers>
             
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <DataGridTextColumn Header="Country" Binding="{Binding Path=Country, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="{Binding Source={StaticResource LocHelper}, Path=[Language.Name]}" Binding="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="{Binding Source={StaticResource LocHelper}, Path=[Language.Country]}" Binding="{Binding Path=Country, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

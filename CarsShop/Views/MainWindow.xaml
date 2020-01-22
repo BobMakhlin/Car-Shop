@@ -7,8 +7,9 @@
         xmlns:cs="clr-namespace:CarsShop.Converters"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:dd="urn:gong-wpf-dragdrop"
+        xmlns:loc="clr-namespace:LocalizatorHelper;assembly=LocalizationHelper"
         mc:Ignorable="d"
-        Title="Car shop" Height="555" Width="930" Background="#333">
+        Height="555" Width="930" Background="#333">
 
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="Closing">
@@ -27,8 +28,14 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <loc:LocalizationHelper x:Key="LocHelper"/>
     </Window.Resources>
 
+    <Window.Title>
+        <Binding Source="{StaticResource LocHelper}" Path="[Language.MainWindowTitle]"/>
+    </Window.Title>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -42,18 +49,18 @@
                 <RowDefinition Height="4.5*"/>
                 <RowDefinition Height="0.6*"/>
             </Grid.RowDefinitions>
-            
+
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button Margin="0,5,1,0" ToolTip="From A to Z" Command="{Binding CommandAzSort}">
+                <Button Margin="0,5,1,0" ToolTip="{Binding Source={StaticResource LocHelper}, Path=[Language.AzSort]}" Command="{Binding CommandAzSort}">
                     <Image Source="/Resources/Images/png/AzSort.png"/>
                 </Button>
-                <Button Margin="0,5,1,0"  ToolTip="From Z to A" Command="{Binding CommandZaSort}">
+                <Button Margin="0,5,1,0" ToolTip="{Binding Source={StaticResource LocHelper}, Path=[Language.ZaSort]}" Command="{Binding CommandZaSort}">
                     <Image Source="/Resources/Images/png/ZaSort.png"/>
                 </Button>
-                <Button Margin="0,5,1,0" ToolTip="From cheap to expensive" Command="{Binding CommandFromCheapToExpensiveSort}">
+                <Button Margin="0,5,1,0" ToolTip="{Binding Source={StaticResource LocHelper}, Path=[Language.FromCheapToExpensive]}" Command="{Binding CommandFromCheapToExpensiveSort}">
                     <Image Source="/Resources/Images/png/FromCheapToExpensive.png"/>
                 </Button>
-                <Button  Margin="0,5,0,0"  ToolTip="From expensive to cheap" Command="{Binding CommandFromExpensiveToCheapSort}">
+                <Button  Margin="0,5,0,0" ToolTip="{Binding Source={StaticResource LocHelper}, Path=[Language.FromExpensiveToCheap]}" Command="{Binding CommandFromExpensiveToCheapSort}">
                     <Image Source="/Resources/Images/png/FromExpensiveToCheap.png"/>
                 </Button>
             </StackPanel>
@@ -71,9 +78,9 @@
 
             <UniformGrid Rows="1" Grid.Row="2" Margin="5">
                 <Button Height="Auto" Width="Auto"
-                        Command="{Binding CommandAddCar}">Add</Button>
+                        Command="{Binding CommandAddCar}" Content="{Binding Source={StaticResource LocHelper}, Path=[Language.Add]}"/>
                 <Button Height="Auto" Width="Auto" Margin="5,0,0,0"
-                        Command="{Binding CommandDeleteCurrentCar}">Delete</Button>
+                        Command="{Binding CommandDeleteCurrentCar}"  Content="{Binding Source={StaticResource LocHelper}, Path=[Language.Delete]}"/>
             </UniformGrid>
         </Grid>
 
@@ -123,8 +130,8 @@
                     </Image>
 
                     <UniformGrid Height="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Rows="1" Margin="0,0,5,0">
-                        <Button Margin="0,0,5,0" Command="{Binding CommandOpenPhoto}">Open</Button>
-                        <Button Command="{Binding CommandDeleteCurrentPhoto}">Delete</Button>
+                        <Button Margin="0,0,5,0" Command="{Binding CommandOpenPhoto}" Content="{Binding Source={StaticResource LocHelper}, Path=[Language.Open]}"/>
+                        <Button Command="{Binding CommandDeleteCurrentPhoto}" Content="{Binding Source={StaticResource LocHelper}, Path=[Language.Delete]}"/>
                     </UniformGrid>
                 </Grid>
 
@@ -139,7 +146,7 @@
 
             <Grid Grid.Row="1" Margin="0,0,0,5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.206*"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -150,11 +157,11 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Label Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="{DynamicResource LabelForeground}">Model:</Label>
-                <Label Margin="0,0,10,0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="{DynamicResource LabelForeground}">Price:</Label>
-                <Label Margin="0,0,10,0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="{DynamicResource LabelForeground}">Class:</Label>
-                <Label Margin="0,0,10,0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="{DynamicResource LabelForeground}">Color:</Label>
-                <Label Margin="0,0,10,0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="{DynamicResource LabelForeground}">Manufacturer:</Label>
+                <Label Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding Source={StaticResource LocHelper}, Path=[Language.Model]}" Foreground="{DynamicResource LabelForeground}"/>
+                <Label Margin="0,0,10,0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding Source={StaticResource LocHelper}, Path=[Language.Price]}" Foreground="{DynamicResource LabelForeground}"/>
+                <Label Margin="0,0,10,0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding Source={StaticResource LocHelper}, Path=[Language.Class]}" Foreground="{DynamicResource LabelForeground}"/>
+                <Label Margin="0,0,10,0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding Source={StaticResource LocHelper}, Path=[Language.Color]}" Foreground="{DynamicResource LabelForeground}"/>
+                <Label Margin="0,0,10,0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding Source={StaticResource LocHelper}, Path=[Language.Manufacturer]}" Foreground="{DynamicResource LabelForeground}"/>
 
                 <TextBox Grid.Column="1" Margin="2,2,5,2" Text="{Binding Path=CurrentCar.Model, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="2,2,5,2" Text="{Binding Path=CurrentCar.Price, StringFormat={}{0:C}, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
@@ -185,13 +192,7 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                    <Button Grid.Column="1" Margin="2,2,5,2" Width="Auto" Command="{Binding CommandEditManufacturers}" Content="...">
-                        <Button.ToolTip>
-                            <ToolTip>
-                                <TextBlock FontSize="15.5">Edit manufacturers</TextBlock>
-                            </ToolTip>
-                        </Button.ToolTip>
-                    </Button>
+                    <Button Grid.Column="1" Margin="2,2,5,2" Width="Auto" Command="{Binding CommandEditManufacturers}" Content="..." ToolTip="{Binding Source={StaticResource LocHelper}, Path=[Language.EditManufacturersWindowTitle]}"/> 
                 </Grid>
             </Grid>
         </Grid>

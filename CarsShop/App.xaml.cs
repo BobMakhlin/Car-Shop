@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using CarsShop.Resources.Localization;
+using LocalizatorHelper;
 
 namespace CarsShop
 {
@@ -13,5 +15,9 @@ namespace CarsShop
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            ResourceManagerService.RegisterManager("Language", Language.ResourceManager, true);
+        }
     }
 }
