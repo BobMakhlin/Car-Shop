@@ -23,6 +23,7 @@ namespace CarsShop.ViewModels
         {
             InitCommands();
 
+            // Init theme.
             ThemesNames = ThemeManager.GetThemesNames();
 
             var theme = Settings.Default.Theme;
@@ -35,32 +36,31 @@ namespace CarsShop.ViewModels
                 SelectedTheme = ThemesNames.FirstOrDefault();
             }
 
+            // Init language.
             Languages = new LanguagesStorage();
             SelectedLanguage = new CultureInfo(Settings.Default.Language);
+
+            // Load license.
+            License = AppDataManager.LoadLicense(AppFiles.LicensePath);
         }
 
         public List<string> ThemesNames { get; set; }
         public string SelectedTheme { get; set; }
         public List<CultureInfo> Languages { get; set; }
         public CultureInfo SelectedLanguage { get; set; }
-        public ICommand CommandSetTheme { get; private set; }
-        public ICommand CommandSetLanguage { get; private set; }
+        public string License { get; set; }
+        public ICommand CommandOk { get; private set; }
         public ICommand CommandWindowClosing { get; private set; }
 
         void InitCommands()
         {
-            CommandSetTheme = new RelayCommand<IClosable>(SetTheme);
-            CommandSetLanguage = new RelayCommand<IClosable>(SetLanguage);
+            CommandOk = new RelayCommand<IClosable>(ApplySettings);
             CommandWindowClosing = new RelayCommand(OnWindowClosing);
         }
 
-        private void SetTheme(IClosable window)
+        private void ApplySettings(IClosable window)
         {
             ThemeManager.SetAppTheme(SelectedTheme);
-            window.Close();
-        }
-        private void SetLanguage(IClosable window)
-        {
             ResourceManagerService.ChangeLocale(SelectedLanguage.Name);
             window.Close();
         }

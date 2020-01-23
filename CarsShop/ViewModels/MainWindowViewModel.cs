@@ -45,7 +45,7 @@ namespace CarsShop.ViewModels
             this.settingsService = settingsService;
 
             // Init drop handlers.
-            ImageDropHandler = new ImageDropHandler(this);
+            ImgDropHandler = new ImageDropHandler(this);
 
             CurrentCarChanged += OnCurrentCarChanged;
 
@@ -88,7 +88,7 @@ namespace CarsShop.ViewModels
         public List<NamedColor> CarColors { get; set; }
         public ObservableCollection<Manufacturer> CarManufacturers { get; set; }
 
-        public IDropTarget ImageDropHandler { get; private set; }
+        public IDropTarget ImgDropHandler { get; private set; }
         public ICommand CommandAddCar { get; private set; }
         public ICommand CommandDeleteCurrentCar { get; private set; }
         public ICommand CommandEditManufacturers { get; private set; }

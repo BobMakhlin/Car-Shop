@@ -23,19 +23,26 @@
         </b:EventTrigger>
     </b:Interaction.Triggers>
 
-    <Grid>
+    <Grid Background="#333">
         <TabControl>
             <TabItem Header="{Binding Source={StaticResource LocHelper}, Path=[Language.Themes]}">
                 <StackPanel>
                     <ComboBox Margin="5" ItemsSource="{Binding Path=ThemesNames}" SelectedItem="{Binding Path=SelectedTheme}"/>
-                    <Button Margin="5,0,5,5" Width="80" Height="28" Command="{Binding CommandSetTheme}" CommandParameter="{Binding ElementName=window}">OK</Button>
+                    <Button Margin="5,0,5,5" Width="80" Height="28" Command="{Binding CommandOk}" CommandParameter="{Binding ElementName=window}">OK</Button>
                 </StackPanel>
             </TabItem>
             <TabItem Header="{Binding Source={StaticResource LocHelper}, Path=[Language.Languages]}">
                 <StackPanel>
                     <ComboBox Margin="5" ItemsSource="{Binding Path=Languages}" DisplayMemberPath="NativeName" SelectedItem="{Binding Path=SelectedLanguage}"/>
-                    <Button Margin="5,0,5,5" Width="80" Height="28" Command="{Binding CommandSetLanguage}" CommandParameter="{Binding ElementName=window}">OK</Button>
+                    <Button Margin="5,0,5,5" Width="80" Height="28" Command="{Binding CommandOk}" CommandParameter="{Binding ElementName=window}">OK</Button>
                 </StackPanel>
+            </TabItem>
+            <TabItem Header="{Binding Source={StaticResource LocHelper}, Path=[Language.License]}">
+                <Grid MaxHeight="325">
+                    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalContentAlignment="Center">
+                        <Label Content="{Binding License}" HorizontalContentAlignment="Center"/>
+                    </ScrollViewer>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

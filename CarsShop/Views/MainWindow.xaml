@@ -33,7 +33,7 @@
     <Window.Title>
         <Binding Path="LocHelper[Language.MainWindowTitle]"/>
     </Window.Title>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -89,6 +89,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
+            <!-- Photo -->
             <Grid Margin="5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -105,7 +106,7 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Row="2" Grid.Column="2" Background="Transparent" dd:DragDrop.IsDropTarget="True" dd:DragDrop.DropHandler="{Binding ImageDropHandler}">
+                <Grid Grid.Row="2" Grid.Column="2" dd:DragDrop.IsDropTarget="True" dd:DragDrop.DropHandler="{Binding ImgDropHandler}" Background="Transparent">
                     <Image Source="{Binding CurrentPhoto.Path}">
                         <Image.InputBindings>
                             <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding CommandOpenPhoto}"/>
@@ -134,12 +135,12 @@
                 </Grid>
 
                 <!--Vertical GridSplitters-->
-                <GridSplitter Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Stretch" Width="1" Background="Gray" ResizeBehavior="PreviousAndNext"/>
-                <GridSplitter Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Stretch" Width="1" Background="Gray" ResizeBehavior="PreviousAndNext"/>
+                <GridSplitter Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Stretch" Width="2" Background="Gray" ResizeBehavior="PreviousAndNext"/>
+                <GridSplitter Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Stretch" Width="2" Background="Gray" ResizeBehavior="PreviousAndNext"/>
 
                 <!--Horizontal GridSplitters-->
-                <GridSplitter Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Height="1" Background="Gray" ResizeBehavior="PreviousAndNext"/>
-                <GridSplitter Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Height="1" Background="Gray" ResizeBehavior="PreviousAndNext"/>
+                <GridSplitter Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Height="2" Background="Gray" ResizeBehavior="PreviousAndNext"/>
+                <GridSplitter Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Height="2" Background="Gray" ResizeBehavior="PreviousAndNext"/>
             </Grid>
 
             <Grid Grid.Row="1" Margin="0,0,0,5">
@@ -155,11 +156,11 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Label Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding LocHelper[Language.Model]}" Foreground="{DynamicResource LabelForeground}"/>
-                <Label Margin="0,0,10,0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding LocHelper[Language.Price]}" Foreground="{DynamicResource LabelForeground}"/>
-                <Label Margin="0,0,10,0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding LocHelper[Language.Class]}" Foreground="{DynamicResource LabelForeground}"/>
-                <Label Margin="0,0,10,0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding LocHelper[Language.Color]}" Foreground="{DynamicResource LabelForeground}"/>
-                <Label Margin="0,0,10,0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding LocHelper[Language.Manufacturer]}" Foreground="{DynamicResource LabelForeground}"/>
+                <Label Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding LocHelper[Language.Model]}"/>
+                <Label Margin="0,0,10,0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding LocHelper[Language.Price]}"/>
+                <Label Margin="0,0,10,0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding LocHelper[Language.Class]}"/>
+                <Label Margin="0,0,10,0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding LocHelper[Language.Color]}"/>
+                <Label Margin="0,0,10,0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding LocHelper[Language.Manufacturer]}"/>
 
                 <TextBox Grid.Column="1" Margin="2,2,5,2" Text="{Binding Path=CurrentCar.Model, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="2,2,5,2" Text="{Binding Path=CurrentCar.Price, StringFormat={}{0:C}, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
