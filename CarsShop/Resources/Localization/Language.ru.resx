@@ -135,6 +135,12 @@
   <data name="Delete" xml:space="preserve">
     <value>Удалить</value>
   </data>
+  <data name="DeleteSelectedCar" xml:space="preserve">
+    <value>Вы уверены, что хотите удалить это авто?</value>
+  </data>
+  <data name="DeleteSelectedPhoto" xml:space="preserve">
+    <value>Вы уверены, что хотите удалить это фото?</value>
+  </data>
   <data name="EditManufacturersWindowTitle" xml:space="preserve">
     <value>Редактировать производителей</value>
   </data>
@@ -159,6 +165,9 @@
   <data name="Name" xml:space="preserve">
     <value>Название</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>Нет</value>
+  </data>
   <data name="Open" xml:space="preserve">
     <value>Открыть</value>
   </data>
@@ -170,6 +179,9 @@
   </data>
   <data name="Themes" xml:space="preserve">
     <value>Темы</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Да</value>
   </data>
   <data name="ZaSort" xml:space="preserve">
     <value>От Я до А</value>

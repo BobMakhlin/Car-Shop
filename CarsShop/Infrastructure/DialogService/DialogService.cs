@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using CarsShop.Views;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,17 @@ namespace CarsShop.Services
             var result = MessageBox.Show(msg, caption, MessageBoxButton.YesNo);
 
             if (result == MessageBoxResult.Yes)
+            {
+                return DialogResult.Yes;
+            }
+            return DialogResult.No;
+        }
+        public DialogResult CustomMessageBoxYesNo(string msg, string caption = "")
+        {
+            var dialog = new MessageBoxYesNo(msg, caption);
+            var result = dialog.ShowDialog();
+
+            if (result == true)
             {
                 return DialogResult.Yes;
             }

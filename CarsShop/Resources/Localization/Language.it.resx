@@ -135,8 +135,14 @@
   <data name="Delete" xml:space="preserve">
     <value>Rimuovere</value>
   </data>
+  <data name="DeleteSelectedCar" xml:space="preserve">
+    <value>Sei sicuro di voler eliminare questa macchina?</value>
+  </data>
+  <data name="DeleteSelectedPhoto" xml:space="preserve">
+    <value>Sei sicuro di voler eliminare questa foto?</value>
+  </data>
   <data name="EditManufacturersWindowTitle" xml:space="preserve">
-    <value>Modificare  produttori</value>
+    <value>Modificare produttori</value>
   </data>
   <data name="FromCheapToExpensive" xml:space="preserve">
     <value>Di buon mercato à caro</value>
@@ -159,6 +165,9 @@
   <data name="Name" xml:space="preserve">
     <value>Titolo</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="Open" xml:space="preserve">
     <value>Aprire</value>
   </data>
@@ -170,6 +179,9 @@
   </data>
   <data name="Themes" xml:space="preserve">
     <value>Temi</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Sì</value>
   </data>
   <data name="ZaSort" xml:space="preserve">
     <value>Di Z à A</value>

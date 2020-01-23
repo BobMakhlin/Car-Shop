@@ -11,5 +11,6 @@ namespace CarsShop.Services
         string File { get; set; }
         bool OpenFileDialog();
         DialogResult MessageBoxYesNo(string msg, string caption = "");
+        DialogResult CustomMessageBoxYesNo(string msg, string caption = "");
     }
 }

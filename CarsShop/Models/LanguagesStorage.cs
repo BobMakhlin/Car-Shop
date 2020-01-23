@@ -16,6 +16,7 @@ namespace CarsShop.Models
             this.Add(new CultureInfo("it"));
             this.Add(new CultureInfo("fr"));
             this.Add(new CultureInfo("de"));
+            this.Add(new CultureInfo("uk"));
         }
     }
 }

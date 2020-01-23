@@ -82,6 +82,7 @@ namespace CarsShop.ViewModels
                 INotifyPropertyChanged();
             }
         }
+        public LocalizationHelper LocHelper { get; set; } = new LocalizationHelper();
 
         public List<string> CarClasses { get; private set; }
         public List<NamedColor> CarColors { get; set; }
@@ -147,11 +148,12 @@ namespace CarsShop.ViewModels
             // Set app theme.
             var theme = Settings.Default.Theme;
 
-            if (theme != null)
+            try
             {
                 ThemeManager.SetAppTheme(theme);
+
             }
-            else
+            catch (Exception)
             {
                 ThemeManager.SetAppTheme(ThemeManager.GetThemesNames()[0]);
             }
@@ -171,7 +173,7 @@ namespace CarsShop.ViewModels
         }
         private void DeleteCurrentCar()
         {
-            if (dialogService.MessageBoxYesNo("Are you sure you want to delete the selected car?") == DialogResult.Yes)
+            if (dialogService.CustomMessageBoxYesNo(LocHelper["Language.DeleteSelectedCar"], LocHelper["Language.MainWindowTitle"]) == DialogResult.Yes)
             {
                 Cars.Remove(CurrentCar);
                 CurrentCar = Cars.LastOrDefault();
@@ -220,7 +222,7 @@ namespace CarsShop.ViewModels
         }
         private void DeleteCurrentPhoto()
         {
-            if (dialogService.MessageBoxYesNo("Are you sure you want to delete this photo?") == DialogResult.Yes)
+            if (dialogService.CustomMessageBoxYesNo(LocHelper["Language.DeleteSelectedPhoto"], LocHelper["Language.MainWindowTitle"]) == DialogResult.Yes)
             {
                 CurrentCar.Photos.Remove(CurrentPhoto);
                 CurrentPhoto = CurrentCar.Photos.LastOrDefault();

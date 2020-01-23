@@ -26,7 +26,7 @@ namespace CarsShop.ViewModels
             ThemesNames = ThemeManager.GetThemesNames();
 
             var theme = Settings.Default.Theme;
-            if (theme != null)
+            if (theme != string.Empty)
             {
                 SelectedTheme = theme;
             }
@@ -36,7 +36,7 @@ namespace CarsShop.ViewModels
             }
 
             Languages = new LanguagesStorage();
-            SelectedLanguage = Thread.CurrentThread.CurrentCulture;
+            SelectedLanguage = new CultureInfo(Settings.Default.Language);
         }
 
         public List<string> ThemesNames { get; set; }

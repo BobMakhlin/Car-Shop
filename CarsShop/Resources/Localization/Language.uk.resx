@@ -118,72 +118,72 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Add" xml:space="preserve">
-    <value>Add</value>
+    <value>Додати</value>
   </data>
   <data name="AzSort" xml:space="preserve">
-    <value>From A to Z</value>
+    <value>Від А до Я</value>
   </data>
   <data name="Class" xml:space="preserve">
-    <value>Class:</value>
+    <value>Клас:</value>
   </data>
   <data name="Color" xml:space="preserve">
-    <value>Color:</value>
+    <value>Колір:</value>
   </data>
   <data name="Country" xml:space="preserve">
-    <value>Country</value>
+    <value>Країна</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Видалити</value>
   </data>
   <data name="DeleteSelectedCar" xml:space="preserve">
-    <value>Are you sure you want to delete the selected car?</value>
+    <value>Ви впевнені, що хочете видалити це авто?</value>
   </data>
   <data name="DeleteSelectedPhoto" xml:space="preserve">
-    <value>Are you sure you want to delete this photo?</value>
+    <value>Ви впевнені, що хочете видалити це фото?</value>
   </data>
   <data name="EditManufacturersWindowTitle" xml:space="preserve">
-    <value>Edit manufacturers</value>
+    <value>Редагувати виробників</value>
   </data>
   <data name="FromCheapToExpensive" xml:space="preserve">
-    <value>From cheap to expensive</value>
+    <value>Від дешевих до дорогих</value>
   </data>
   <data name="FromExpensiveToCheap" xml:space="preserve">
-    <value>From expensive to cheap</value>
+    <value>Від дорогих до дешевих</value>
   </data>
   <data name="Languages" xml:space="preserve">
-    <value>Languages</value>
+    <value>Мови</value>
   </data>
   <data name="MainWindowTitle" xml:space="preserve">
-    <value>Car shop</value>
+    <value>Авто магазин</value>
   </data>
   <data name="Manufacturer" xml:space="preserve">
-    <value>Manufacturer:</value>
+    <value>Виробники:</value>
   </data>
   <data name="Model" xml:space="preserve">
-    <value>Model:</value>
+    <value>Модель:</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Назва</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>Ні</value>
   </data>
   <data name="Open" xml:space="preserve">
-    <value>Open</value>
+    <value>Відкрити</value>
   </data>
   <data name="Price" xml:space="preserve">
-    <value>Price:</value>
+    <value>Ціна:</value>
   </data>
   <data name="SettingsWindowTitle" xml:space="preserve">
-    <value>Settings</value>
+    <value>Налаштування</value>
   </data>
   <data name="Themes" xml:space="preserve">
-    <value>Themes</value>
+    <value>Теми</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Так</value>
   </data>
   <data name="ZaSort" xml:space="preserve">
-    <value>From Z to A</value>
+    <value>Від Я до А</value>
   </data>
 </root>

@@ -1,0 +1,28 @@
+﻿<Window x:Class="CarsShop.Views.MessageBoxYesNo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarsShop.Views"
+        xmlns:inf="clr-namespace:CarsShop.Infrastructure"
+        xmlns:loc="clr-namespace:LocalizatorHelper;assembly=LocalizationHelper"
+        mc:Ignorable="d"
+        Title="{Binding Path=Caption}" SizeToContent="WidthAndHeight" MinHeight="135" MinWidth="360" inf:DialogCloser.DialogResult="{Binding WindowResult}"
+        Background="#333">
+
+    <Window.Resources>
+        <loc:LocalizationHelper x:Key="LocHelper"/>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="{Binding Path=Message}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <UniformGrid Grid.Row="1" Rows="1">
+            <Button Margin="5,3,1.5,3" Command="{Binding CommandYes}" Content="{Binding Source={StaticResource LocHelper}, Path=[Language.Yes]}"/>
+            <Button Margin="3,3,5,3" Command="{Binding CommandNo}" Content="{Binding Source={StaticResource LocHelper}, Path=[Language.No]}"/>
+        </UniformGrid>
+    </Grid>
+</Window>

@@ -115,6 +115,24 @@ namespace CarsShop.Resources.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Are you sure you want to delete the selected car?.
+        /// </summary>
+        internal static string DeleteSelectedCar {
+            get {
+                return ResourceManager.GetString("DeleteSelectedCar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Are you sure you want to delete this photo?.
+        /// </summary>
+        internal static string DeleteSelectedPhoto {
+            get {
+                return ResourceManager.GetString("DeleteSelectedPhoto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Edit manufacturers.
         /// </summary>
         internal static string EditManufacturersWindowTitle {
@@ -187,6 +205,15 @@ namespace CarsShop.Resources.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на No.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Open.
         /// </summary>
         internal static string Open {
@@ -219,6 +246,15 @@ namespace CarsShop.Resources.Localization {
         internal static string Themes {
             get {
                 return ResourceManager.GetString("Themes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
         
